@@ -6,7 +6,7 @@ layout: page
 # Projects
 ## Finished Projects
 * [dturingmch](https://github.com/joaquintorres/dturingmch), a quick and dirty Turing Machine class in Python. *Warning: May not actually be a Turing Machine.*
-* [autosubsync-mpv](https://github.com/joaquintorres/autosubsync-mpv) A script for automatic subtitle synchronization in mpv media player, using [ffsubsync](https://github.com/smacke/ffsubsync). 
+* [autosubsync-mpv](https://github.com/joaquintorres/autosubsync-mpv), a script for automatic subtitle synchronization in mpv media player, using [ffsubsync](https://github.com/smacke/ffsubsync). 
 ## Future Projects and Ideas
 * Upload and explain the char-RNN I trained with random quotes.
 * Maybe add [multilingual support for this site](https://www.sylvaindurand.org/making-jekyll-multilingual/).
