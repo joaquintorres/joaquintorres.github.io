@@ -1,7 +1,7 @@
 ---
 title: Otsu's Method and the Digitalization of Old Books
 ---
-
+UNDER CONSTRUCTION!!!
 ## The Basics
 So, Otsu's Method for automatic thresholding. What is it? If we were to give a definition loosely based on [Wikipedia](https://en.wikipedia.org/wiki/Otsu%27s_method), maybe a reasonable one would be
 > Otsu's Method is an algorithm that allows automatic image thresholding. In its simplest form, it returns a single intensity threshold that separates pixels into two classes, foreground and background. This threshold is selected by choosing a value that maximizes interclass variance, or equivalently, minimizes intraclass variance.

@@ -1,5 +1,5 @@
 ---
-title: "Math Typesetting Test"
+title: Math Typesetting Test
 layout: post
 date: 2020-05-10 12:00
 tag:
@@ -18,13 +18,12 @@ I remember when Wikipedia used to display equations with low resolution PNG imag
 
 So, since I'm trying to make an actual website for the first time (and I plan to write blog posts that include some math), I thought this might be the first thing to tackle. I've tried MathJax before in a simple HTML file, but since I read good things about \\( \KaTeX \\), I decided to give it a go as soon as I got Jekyll to run this website locally.
 
-\\[\begin{cases}
-\nabla \cdot \mathbf{E} = 4\pi\rho \\\
-\nabla \cdot \mathbf {B} =0 \\\
-\nabla \times \mathbf {E} =-{\frac {\partial \mathbf {B} }{\partial t}}\\\
+$$\begin{cases}
+\nabla \cdot \mathbf{E} = 4\pi\rho \\
+\nabla \cdot \mathbf {B} =0 \\
+\nabla \times \mathbf {E} =-{\frac {\partial \mathbf {B} }{\partial t}}\\
 \nabla \times \mathbf {B} =\mu _{0}\left(\mathbf {J} +\varepsilon _{0}{\frac {\partial \mathbf {E} }{\partial t}}\right) 
-\end{cases}\\]
-
+\end{cases}$$
 
 *Maxwell's equations in Gaussian units. Cliché, I know.*
 
@@ -32,9 +31,9 @@ Looks good! And it appears to render pretty fast. It may be a dumb thing to do, 
 ## Setting things up
 [\\(\KaTeX\\)](https://katex.org/)  is a math typesetting library that renders synchronously.  It can be used in several ways, but the easiest to do with GitHub Pages appears to be using its [autorender extension](https://katex.org/docs/autorender.html). To do that, the following script needs to be on the `<head>` section:
 {% highlight html %}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 {% endhighlight %}
 The latest version should be available [here](https://katex.org/docs/autorender.html). Also, for Jekyll sites, the `_config.yml` file must be edited to include the engine with these lines
@@ -72,3 +71,5 @@ This results in the following text:
 If everything is OK, this should display the \\( \KaTeX \\) stylesheet version. So now, \\( \LaTeX \\) text should be displayed every time you enclose your code between `\\( \\)` for inline mode and  `\\[ \\]` for display mode. The particular delimiters can be changed, I think, but for now this will do. It also seems to work nicely with markdown, for headers and links at least. A [complete set of the available functions](https://katex.org/docs/supported.html) can be found at the official website. For some reason, the hard line breaks in Maxwell's equations only worked with `\\\` instead of `\\`. Maybe it's a markdown issue?  I could look into it later, but for now, the site works!
 
 <iframe width="560" height="310" src="https://www.youtube.com/embed/QuoKNZjr8_U" frameborder="0" allowfullscreen></iframe>
+
+(UPDATE:  Updating `kramdown` resulted in new problems rendering the equations above. Now I'm positive it has to do with compatibility with the markdown engine. I fixed it by enclosing  the equation between `$$` `$$`. This also fixed the extra `\` in hard linebreaks . See [this more in-depth post by Guillaume Endignoux for more info](https://gendignoux.com/blog/2020/05/23/katex.html))
